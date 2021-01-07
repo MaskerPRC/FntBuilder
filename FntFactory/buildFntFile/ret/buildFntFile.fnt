@@ -1,0 +1,21 @@
+info face="Arial" size=334 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
+common lineHeight=334 base=334 scaleW=4830 scaleH=443 pages=1 packed=0 alphaChnl=1 redChnl=0 greenChnl=0 blueChnl=0
+page id=0 file="buildFntFile.png"
+chars count=17
+char id=36 x=0 y=0 width=303 height=443 xoffset=-9 yoffset=0 xadvance=294 page=0  chnl=15
+char id=37 x=303 y=0 width=396 height=346 xoffset=-56 yoffset=48 xadvance=340 page=0  chnl=15
+char id=44 x=699 y=0 width=74 height=126 xoffset=105 yoffset=158 xadvance=179 page=0  chnl=15
+char id=48 x=773 y=0 width=349 height=341 xoffset=-32 yoffset=51 xadvance=317 page=0  chnl=15
+char id=49 x=1122 y=0 width=126 height=341 xoffset=79 yoffset=51 xadvance=205 page=0  chnl=15
+char id=50 x=1248 y=0 width=271 height=340 xoffset=6 yoffset=51 xadvance=277 page=0  chnl=15
+char id=51 x=1519 y=0 width=282 height=343 xoffset=1 yoffset=50 xadvance=283 page=0  chnl=15
+char id=52 x=1801 y=0 width=314 height=341 xoffset=-15 yoffset=51 xadvance=299 page=0  chnl=15
+char id=53 x=2115 y=0 width=270 height=342 xoffset=7 yoffset=50 xadvance=277 page=0  chnl=15
+char id=54 x=2385 y=0 width=273 height=343 xoffset=5 yoffset=50 xadvance=278 page=0  chnl=15
+char id=55 x=2658 y=0 width=291 height=337 xoffset=-3 yoffset=53 xadvance=288 page=0  chnl=15
+char id=56 x=2949 y=0 width=258 height=343 xoffset=13 yoffset=50 xadvance=271 page=0  chnl=15
+char id=57 x=3207 y=0 width=287 height=342 xoffset=-1 yoffset=50 xadvance=286 page=0  chnl=15
+char id=66 x=0 y=443 width=312 height=342 xoffset=-14 yoffset=50 xadvance=298 page=0  chnl=15
+char id=75 x=312 y=443 width=309 height=340 xoffset=-12 yoffset=51 xadvance=297 page=0  chnl=15
+char id=77 x=621 y=443 width=365 height=340 xoffset=-40 yoffset=51 xadvance=325 page=0  chnl=15
+char id=84 x=986 y=443 width=350 height=337 xoffset=-33 yoffset=53 xadvance=317 page=0  chnl=15

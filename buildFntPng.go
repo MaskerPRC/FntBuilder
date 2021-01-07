@@ -12,6 +12,7 @@ import (
 	"path"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 
 	"github.com/disintegration/imaging"
@@ -83,6 +84,7 @@ var name = flag.String("n", "", "name")
 var skip = flag.String("s", "", "remove")
 var gaps = flag.Int("g", 10, "gap")
 var gap = *gaps
+var lineCharNum = 10
 
 func NameDetect(imageName string) rune {
 
@@ -129,6 +131,32 @@ func main() {
 	totalW := 0
 	totalH := 0
 	maxH := 0
+
+	//获取最大宽和最大高
+	maaxW := 0
+	maaxH := 0
+	for _, name := range files {
+		img, err := imaging.Open(name)
+
+		if err != nil {
+			fmt.Println("图片" + name)
+			panic(err)
+		}
+
+		ww := img.Bounds().Max.X
+		hh := img.Bounds().Max.Y
+		if ww > maaxW {
+			maaxW = ww
+		}
+		if hh > maaxH {
+			maaxH = hh
+		}
+	}
+
+	lineMaxW := maaxW*lineCharNum
+	//设置图片位置
+	curW := 0
+	curH := 0
 	for i, name := range files {
 		k := NameDetect(filepath.Base(name))
 
@@ -143,23 +171,29 @@ func main() {
 		h := img.Bounds().Max.Y
 
 		//加上字间距
-		CX := totalW
-		CY := 0
+		if curW + w + w/gap > lineMaxW {
+			curW = 0
+			curH += maaxH
+		}
+
 		CH := h
 		CW := w + w/gap
-		PX := totalW + w/gap/2
-		PY := 0
+		PX := curW + w/gap/2
+		PY := curH
 		ip := ImagePair{
 			Name:     k,
 			Image:    img,
 			FileName: name,
-			ContentX: CX,
-			ContentY: CY,
+			ContentX: curW,
+			ContentY: curH,
 			ContentH: CH,
 			ContentW: CW,
 			PasteX: PX,
 			PasteY: PY,
 		}
+		curW += CW
+		fmt.Println("x:" + strconv.Itoa(curW) + " y:"+ strconv.Itoa(curH))
+
 
 		totalW += CW
 		totalH += h
@@ -173,7 +207,9 @@ func main() {
 	avgW := totalW / len(files)
 	avgH := totalH / len(files)
 
-	dest := imaging.New(totalW, maxH, color.Alpha{0})
+	lineNum := int(len(files)/lineCharNum)
+
+	dest := imaging.New(lineMaxW, lineNum*maaxH, color.Alpha{0})
 	f, _ := os.Create(path+"/ret/"+*name + ".fnt")
 	//
 	W(f, "info face=\"Arial\" size=%d bold=0 italic=0 charset=\"\" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0", avgH)
@@ -181,7 +217,6 @@ func main() {
 	W(f, "page id=0 file=\"%s.png\"", *name)
 	W(f, "chars count=%d", len(files))
 
-	ofx := 0
 	for _, pair := range images {
 		img := pair.Image
 		k := pair.Name
@@ -189,11 +224,10 @@ func main() {
 		h := pair.ContentH
 		px := pair.PasteX
 		py := pair.PasteY
-		x := ofx
-		y := 0
+		x := pair.ContentX
+		y := pair.ContentY
 
 		dest = imaging.Paste(dest, img, image.Pt(px, py))
-		ofx += w
 
 		fmt.Println(fmt.Sprintf("%s => %s => %d", pair.FileName, string(pair.Name), int(pair.Name)))
 

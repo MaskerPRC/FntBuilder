@@ -207,7 +207,7 @@ func main() {
 	avgW := totalW / len(files)
 	avgH := totalH / len(files)
 
-	lineNum := int(len(files)/lineCharNum)
+	lineNum := int(len(files)/lineCharNum)+1
 
 	dest := imaging.New(lineMaxW, lineNum*maaxH, color.Alpha{0})
 	f, _ := os.Create(path+"/ret/"+*name + ".fnt")

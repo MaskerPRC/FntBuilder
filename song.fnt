@@ -1,0 +1,12 @@
+info face="Arial" size=342 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
+common lineHeight=342 base=342 scaleW=3327 scaleH=353 pages=1 packed=0 alphaChnl=1 redChnl=0 greenChnl=0 blueChnl=0
+page id=0 file="song.png"
+chars count=8
+char id=82 x=0 y=0 width=450 height=343 xoffset=-17 yoffset=5 xadvance=433 page=0  chnl=15
+char id=83 x=450 y=0 width=343 height=342 xoffset=36 yoffset=5 xadvance=379 page=0  chnl=15
+char id=84 x=793 y=0 width=398 height=337 xoffset=8 yoffset=8 xadvance=406 page=0  chnl=15
+char id=85 x=1191 y=0 width=422 height=341 xoffset=-3 yoffset=6 xadvance=419 page=0  chnl=15
+char id=86 x=1613 y=0 width=441 height=342 xoffset=-13 yoffset=5 xadvance=428 page=0  chnl=15
+char id=87 x=2054 y=0 width=491 height=342 xoffset=-38 yoffset=5 xadvance=453 page=0  chnl=15
+char id=88 x=2545 y=0 width=382 height=342 xoffset=16 yoffset=5 xadvance=398 page=0  chnl=15
+char id=89 x=2927 y=0 width=400 height=353 xoffset=7 yoffset=0 xadvance=407 page=0  chnl=15

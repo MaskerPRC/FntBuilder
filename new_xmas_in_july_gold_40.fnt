@@ -1,0 +1,20 @@
+info face="Tahoma" size=40 bold=1 italic=0 charset="" unicode=0 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=2,2
+common lineHeight=49 base=40 scaleW=165 scaleH=197 pages=1 packed=0
+page id=0 file="new_xmas_in_july_gold_40.png"
+chars count=16
+char id=32     x=130   y=148   width=0     height=0     xoffset=0     yoffset=44    xadvance=16    page=0 chnl=0 letter="space"
+char id=44     x=78    y=148   width=26    height=31    xoffset=-2    yoffset=20    xadvance=17    page=0 chnl=0 letter=","
+char id=46     x=106   y=148   width=22    height=24    xoffset=1     yoffset=20    xadvance=17    page=0 chnl=0 letter="."
+char id=48     x=123   y=2     width=38    height=47    xoffset=-0    yoffset=-2    xadvance=29    page=0 chnl=0 letter="0"
+char id=49     x=41    y=148   width=35    height=46    xoffset=2     yoffset=-2    xadvance=29    page=0 chnl=0 letter="1"
+char id=50     x=84    y=100   width=37    height=46    xoffset=1     yoffset=-2    xadvance=29    page=0 chnl=0 letter="2"
+char id=51     x=2     y=51    width=37    height=47    xoffset=0     yoffset=-2    xadvance=29    page=0 chnl=0 letter="3"
+char id=52     x=2     y=100   width=39    height=46    xoffset=-1    yoffset=-2    xadvance=29    page=0 chnl=0 letter="4"
+char id=53     x=123   y=100   width=37    height=46    xoffset=0     yoffset=-1    xadvance=29    page=0 chnl=0 letter="5"
+char id=54     x=43    y=2     width=38    height=47    xoffset=-0    yoffset=-2    xadvance=29    page=0 chnl=0 letter="6"
+char id=55     x=2     y=148   width=37    height=46    xoffset=0     yoffset=-2    xadvance=29    page=0 chnl=0 letter="7"
+char id=56     x=2     y=2     width=39    height=47    xoffset=-1    yoffset=-2    xadvance=29    page=0 chnl=0 letter="8"
+char id=57     x=83    y=2     width=38    height=47    xoffset=-1    yoffset=-2    xadvance=29    page=0 chnl=0 letter="9"
+char id=66     x=43    y=100   width=39    height=46    xoffset=1     yoffset=-2    xadvance=31    page=0 chnl=0 letter="B"
+char id=75     x=88    y=51    width=41    height=46    xoffset=1     yoffset=-2    xadvance=32    page=0 chnl=0 letter="K"
+char id=77     x=41    y=51    width=45    height=46    xoffset=1     yoffset=-2    xadvance=40    page=0 chnl=0 letter="M"

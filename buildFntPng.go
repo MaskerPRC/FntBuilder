@@ -79,11 +79,11 @@ type ImagePair struct {
 	PasteY   int
 }
 
+var gaps = flag.String("g", "10", "gap")
 var dir = flag.String("d", ".", "dir")
 var name = flag.String("n", "", "name")
 var skip = flag.String("s", "", "remove")
-var gaps = flag.Int("g", 10, "gap")
-var gap = *gaps
+
 var lineCharNum = 10
 
 func NameDetect(imageName string) rune {
@@ -110,6 +110,7 @@ func main() {
 
 
 	flag.Parse()
+	var gap,_ = strconv.Atoi(*gaps)
 
 	absPath, err := filepath.Abs(*dir)
 	if err != nil {
@@ -144,6 +145,7 @@ func main() {
 		}
 
 		ww := img.Bounds().Max.X
+		ww += ww/gap
 		hh := img.Bounds().Max.Y
 		if ww > maaxW {
 			maaxW = ww
@@ -192,7 +194,6 @@ func main() {
 			PasteY: PY,
 		}
 		curW += CW
-		fmt.Println("x:" + strconv.Itoa(curW) + " y:"+ strconv.Itoa(curH))
 
 
 		totalW += CW

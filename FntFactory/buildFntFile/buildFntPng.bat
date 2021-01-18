@@ -1,3 +1,3 @@
 @echo off
-%~dp0\buildFntPng.exe -d %~dp0  -g 10
+%~dp0\buildFntPng.exe -d %~dp0  -g 10 -s char
 pause

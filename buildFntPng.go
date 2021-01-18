@@ -7,6 +7,7 @@ import (
 	"image"
 	"image/color"
 	"log"
+	"math"
 	"os"
 	"os/exec"
 	"path"
@@ -17,6 +18,48 @@ import (
 
 	"github.com/disintegration/imaging"
 )
+
+func getCharByAlies(alies string) string {
+	var char = alies
+	switch (alies) {
+	case "Period":
+		char = "."
+		break
+	case "Question":
+		char = "?"
+		break
+	case "Backslash":
+		char = "\\"
+		break
+	case "Slash":
+		char = "/"
+		break
+	case "Colon":
+		char = ":"
+		break
+	case "Star":
+		char = "*"
+		break
+	case "Quotation":
+		char = "\":"
+		break
+	case "Head":
+		char = "<"
+		break
+	case "Trail":
+		char = ">"
+		break
+	case "Surprise":
+		char = "!"
+		break
+	case "Gang":
+		char = "|"
+		break
+	default:
+		char = alies
+	}
+	return char
+}
 
 func getFiles(dir string) []string {
 	files := make([]string, 0)
@@ -91,6 +134,8 @@ func NameDetect(imageName string) rune {
 	ext := filepath.Ext(imageName)
 
 	imageName = imageName[:len(imageName)-len(ext)]
+
+	imageName = getCharByAlies(imageName)
 
 	if *skip != "" {
 		imageName = strings.Replace(imageName, *skip, "", -1)
@@ -214,10 +259,11 @@ func main() {
 	f, _ := os.Create(path+"/ret/"+*name + ".fnt")
 	//
 	W(f, "info face=\"Arial\" size=%d bold=0 italic=0 charset=\"\" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0", avgH)
-	W(f, "common lineHeight=%d base=%d scaleW=%d scaleH=%d pages=1 packed=0 alphaChnl=1 redChnl=0 greenChnl=0 blueChnl=0", avgH, avgH, totalW, maxH)
+	W(f, "common lineHeight=%d base=%d scaleW=%d scaleH=%d pages=1 packed=0 alphaChnl=1 redChnl=0 greenChnl=0 blueChnl=0", maaxH, maaxH, totalW, maxH)
 	W(f, "page id=0 file=\"%s.png\"", *name)
-	W(f, "chars count=%d", len(files))
+	W(f, "chars count=%d", len(files)+1)
 
+	spaceSize := math.MaxInt64
 	for _, pair := range images {
 		img := pair.Image
 		k := pair.Name
@@ -231,9 +277,12 @@ func main() {
 		dest = imaging.Paste(dest, img, image.Pt(px, py))
 
 		fmt.Println(fmt.Sprintf("%s => %s => %d", pair.FileName, string(pair.Name), int(pair.Name)))
-
-		W(f, "char id=%d x=%d y=%d width=%d height=%d xoffset=%d yoffset=%d xadvance=%d page=0  chnl=15", int(k), x, y, w, h, (avgW-w)/2, -h/2+maxH/2, w+(avgW-w)/2)
+		if spaceSize > w+(avgW-w)/2 {
+			spaceSize = w+(avgW-w)/2
+		}
+		W(f, "char id=%d x=%d y=%d width=%d height=%d xoffset=%d yoffset=%d xadvance=%d page=0  chnl=15 char=\"%c\"", int(k), x, y, w, h, 0, maxH-h, w, k)
 	}
+	W(f, "char id=%d x=%d y=%d width=%d height=%d xoffset=%d yoffset=%d xadvance=%d page=0  chnl=15 char=\"%s\"", int(' '), 0, 0, 0, spaceSize, 0, 0, spaceSize, "space")
 
 	if err = imaging.Save(dest, path+"/ret/"+*name+".png"); err != nil {
 		panic(err)

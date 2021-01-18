@@ -60,6 +60,47 @@ func getCharByAlies(alies string) string {
 	}
 	return char
 }
+func getCharPendingButtom(char string) int {
+	var offect = 0
+	switch (char) {
+	case ".":
+		offect = 0
+		break;
+	case "?":
+		offect = 0
+		break;
+	case "\\":
+		offect = 0
+		break;
+	case "/":
+		offect = 0
+		break;
+	case ":":
+		offect = 0
+		break;
+	case "*":
+		offect = 0
+		break;
+	case "\"":
+		offect = 0
+		break;
+	case "<":
+		offect = 0
+		break;
+	case ">":
+		offect = 0
+		break;
+	case "!":
+		offect = 0
+		break;
+	case "|":
+		offect = 0
+		break;
+	default:
+		offect = 0
+	}
+	return offect
+}
 
 func getFiles(dir string) []string {
 	files := make([]string, 0)
